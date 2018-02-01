@@ -1,7 +1,10 @@
 {
   "parser": "babel-eslint",
   "rules": {
-    "react/prop-types": [2, {"ignore": ["dispatch", "params", "children", "defaultValue"]}],
+    "react/prop-types": [
+      2,
+      { "ignore": ["dispatch", "params", "children", "defaultValue"] }
+    ],
     "react/no-console": 0,
     "react/no-did-update-set-state": 2,
     "react/jsx-no-bind": 0,
@@ -22,7 +25,7 @@
     "linebreak-style": [2, "unix"],
     "max-lines": [1, 200],
     "max-depth": [2, 5],
-    "max-len": [1, {"code": 100, "tabWidth": 2, "ignoreUrls": true}],
+    "max-len": [1, { "code": 100, "tabWidth": 2, "ignoreUrls": true }],
     "newline-before-return": 2,
     "no-underscore-dangle": 0,
     "no-use-before-define": [2, "nofunc"],
@@ -54,9 +57,12 @@
     "quotes": [2, "single"],
     "quote-props": [2, "as-needed"],
     "semi": [2, "always"],
-    "space-before-function-paren": [2, { "anonymous": "always", "named": "never" }],
+    "space-before-function-paren": [
+      2,
+      { "anonymous": "always", "named": "never" }
+    ],
     "space-before-blocks": [2, "always"],
-    "semi-spacing": [2, {"before": false, "after": true}],
+    "semi-spacing": [2, { "before": false, "after": true }],
     "space-in-parens": [2, "never"],
     "template-curly-spacing": [2, "never"]
   },
@@ -80,4 +86,3 @@
     }
   }
 }
-
