@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import TextInput from './TextInput';
+
 class Counter extends Component {
   constructor() {
     super();
@@ -12,6 +14,12 @@ class Counter extends Component {
     this.handleDecrement = this.handleDecrement.bind(this);
   }
 
+  // componentDidMount() {
+  //   setTimeout(() => {
+  //     this.setState({ value: this.state.value + 1 });
+  //   }, 5000);
+  // }
+
   handleIncrement() {
     this.setState({ value: this.state.value + 1 });
   }
@@ -21,14 +29,12 @@ class Counter extends Component {
   }
 
   render() {
+    console.log(this.state.value);
+
     return (
       <div>
         <button onClick={this.handleIncrement}>+</button>
-        <input
-          type='text'
-          placeholder='counter value'
-          value={this.state.value}
-        />
+        <TextInput count={this.state.value} />
         <button onClick={this.handleDecrement}>-</button>
       </div>
     );

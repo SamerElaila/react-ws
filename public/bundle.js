@@ -21245,6 +21245,10 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _TextInput = __webpack_require__(34);
+
+var _TextInput2 = _interopRequireDefault(_TextInput);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21270,6 +21274,12 @@ var Counter = function (_Component) {
     return _this;
   }
 
+  // componentDidMount() {
+  //   setTimeout(() => {
+  //     this.setState({ value: this.state.value + 1 });
+  //   }, 5000);
+  // }
+
   _createClass(Counter, [{
     key: 'handleIncrement',
     value: function handleIncrement() {
@@ -21283,6 +21293,8 @@ var Counter = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      console.log(this.state.value);
+
       return _react2.default.createElement(
         'div',
         null,
@@ -21291,11 +21303,7 @@ var Counter = function (_Component) {
           { onClick: this.handleIncrement },
           '+'
         ),
-        _react2.default.createElement('input', {
-          type: 'text',
-          placeholder: 'counter value',
-          value: this.state.value
-        }),
+        _react2.default.createElement(_TextInput2.default, { count: this.state.value }),
         _react2.default.createElement(
           'button',
           { onClick: this.handleDecrement },
@@ -21309,6 +21317,70 @@ var Counter = function (_Component) {
 }(_react.Component);
 
 exports.default = Counter;
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(29);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TextInput = function (_Component) {
+  _inherits(TextInput, _Component);
+
+  function TextInput() {
+    _classCallCheck(this, TextInput);
+
+    return _possibleConstructorReturn(this, (TextInput.__proto__ || Object.getPrototypeOf(TextInput)).apply(this, arguments));
+  }
+
+  _createClass(TextInput, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps() {
+      console.log(this.props);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+
+      return _react2.default.createElement('input', {
+        type: 'text',
+        placeholder: 'counter value',
+        value: this.props.count
+      });
+    }
+  }]);
+
+  return TextInput;
+}(_react.Component);
+
+TextInput.propTypes = {
+  count: _propTypes2.default.number.isRequired
+};
+
+exports.default = TextInput;
 
 /***/ })
 /******/ ]);
