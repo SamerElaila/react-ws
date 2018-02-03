@@ -1,4 +1,4 @@
-import React , { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class TextInput extends Component {
@@ -7,19 +7,14 @@ class TextInput extends Component {
   }
 
   render() {
-
     return (
-      <input
-        type='text'
-        placeholder='counter value'
-        value={this.props.count}
-      />
+      <input type="text" placeholder="counter value" value={this.props.count} />
     );
   }
 }
 
 TextInput.propTypes = {
-  count: PropTypes.number.isRequired
+  count: PropTypes.number
 };
 
 export default TextInput;

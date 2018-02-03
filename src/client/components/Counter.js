@@ -1,44 +1,48 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
+import { increment as incrementAction } from '../actions/incrementCounterAction';
 import TextInput from './TextInput';
 
 class Counter extends Component {
   constructor() {
     super();
 
-    this.state = {
-      value: 0
-    };
-
     this.handleIncrement = this.handleIncrement.bind(this);
     this.handleDecrement = this.handleDecrement.bind(this);
   }
 
-  // componentDidMount() {
-  //   setTimeout(() => {
-  //     this.setState({ value: this.state.value + 1 });
-  //   }, 5000);
-  // }
-
   handleIncrement() {
-    this.setState({ value: this.state.value + 1 });
+    this.props.increment();
   }
 
-  handleDecrement() {
-    this.setState({ value: this.state.value - 1 });
-  }
+  handleDecrement() {}
 
   render() {
-    console.log(this.state.value);
+    console.log(this.props);
 
     return (
       <div>
         <button onClick={this.handleIncrement}>+</button>
-        <TextInput count={this.state.value} />
+        <TextInput count={this.props.count} />
         <button onClick={this.handleDecrement}>-</button>
       </div>
     );
   }
 }
 
-export default Counter;
+const mapStateToProps = state => ({
+  count: state.incrementCounter.count
+});
+
+const mapDispatchToProps = {
+  increment: incrementAction
+};
+
+Counter.propTypes = {
+  increment: PropTypes.func,
+  count: PropTypes.number
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
